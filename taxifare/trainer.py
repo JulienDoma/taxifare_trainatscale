@@ -1,5 +1,5 @@
 
-from taxifare.data import get_data, clean_df, holdout
+from taxifare.data import get_data, clean_df, holdout, get_data_using_blob, save_model_to_gcp
 from taxifare.model import get_model
 from taxifare.pipeline import get_pipeline
 from taxifare.metrics import compute_rmse
@@ -28,7 +28,8 @@ class Trainer(MLFlowBase):
         self.mlflow_log_param("line_count", line_count)
 
         # get data
-        df = get_data(line_count)
+        df = get_data_using_blob(line_count)
+        print("I got the datas !")
         df = clean_df(df)
 
         # holdout
@@ -57,6 +58,16 @@ class Trainer(MLFlowBase):
 
         # push metrics to mlflow
         self.mlflow_log_metric("rmse", rmse)
+        
+        save_model_to_gcp()
+        print("I put the model on GCP ! Yohoo")
 
         # return the gridsearch in order to identify the best estimators and params
         return pipeline
+
+def main():
+    trainer = Trainer()
+    trainer.train()
+    
+if __name__ == "__main__":
+    main()
