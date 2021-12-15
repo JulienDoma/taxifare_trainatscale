@@ -67,7 +67,7 @@ def get_data_using_blob(line_count):
 
     return df
 
-def save_model_to_gcp(filename):
+def save_model_to_gcp():
 
     storage_location = "models/random_forest_model.joblib"
     local_model_filename = "model.joblib"
