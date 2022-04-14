@@ -61,7 +61,7 @@ pypi:
 	@twine upload dist/* -u $(PYPI_USERNAME)
 
 # bucket
-BUCKET_NAME=wagon-data-779-bucket
+BUCKET_NAME=wagon-data-835-domagalski
 
 # training folder
 BUCKET_TRAINING_FOLDER=trainings

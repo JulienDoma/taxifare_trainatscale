@@ -13,7 +13,7 @@ class ParamTrainer(MLFlowBase):
 
     def __init__(self):
         super().__init__(
-            "[FR] [Paris] [gmanchon] taxifare + 1",
+            "[FR] [Marseille/Nice] [JulienD] taxifare v1",
             "https://mlflow.lewagon.co")
 
     def train(self, params):
